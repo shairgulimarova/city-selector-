@@ -47,15 +47,12 @@ export default function CitySelection (){
         console.log('searchQuery:', searchQuery);
     };
 
-    // Фильтрация списка городов на основе строки поиска
     const filteredCities = cities.filter(city =>
         city.city.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    console.log('Filtered Cities:', filteredCities);
   
-
-
-
-
 
     return <div className={styles.container}>
     <div className={styles.goBackContainer}>
@@ -67,9 +64,9 @@ export default function CitySelection (){
         <img src='/search-icon.svg' alt='search' className={styles.searchIcon}/>
         <input type='text' placeholder='Enter the city name' className={styles.cityInput} value={searchQuery} onChange={handleSearchChange}/>
     </div>
-    <ul className="city-list">
+    <ul className="styles.cityList">
         {filteredCities.map((city) => (
-          <li key={city.fias_id} onClick={() => handleCitySelect(city)}  className={`${styles.cityItem} ${selectedCity === city.city ? styles.selected : ''}`}>
+          <li key={city.fias_id} onClick={() => handleCitySelect(city)}  className={`${styles.cityItem} ${searchQuery ? '' : styles.hidden} ${selectedCity === city.city ? styles.selected : ''}`}>
                         <span>{city.city}</span>
             {selectedCity === city.city && <span className="checkmark">✔️</span>}
           </li>

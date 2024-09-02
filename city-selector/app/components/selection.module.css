@@ -52,15 +52,19 @@
     color:#ffff
   }
 
-  /* .city-list{
-    
+  
 
-  } */
+  .cityList {
+    display: none; 
+} 
 
-  .cityItem{
-    list-style: none;
+.cityItem{
+  list-style: none;
+}
 
-  }
+.cityItem.hidden{
+  display: none;
+}
 
   
 
